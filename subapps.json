@@ -1,0 +1,8 @@
+{
+    "subapps": {
+        "RetAG": "Retainer agreements",
+        "InvitationGen": "Invitation letters",
+        "PayTrack": "Payment receipts",
+        "PayAuth": "Credit card payment authorizations"
+    }
+}
