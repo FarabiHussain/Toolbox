@@ -29,15 +29,13 @@ scr_frame = ctk.CTkScrollableFrame(
     border_width=0,
 )
 
-scr_frame.pack(padx=5, pady=1, fill="both", expand=True)
+scr_frame.pack(padx=1, pady=1, fill="both", expand=True)
 
 for i, current_app in enumerate(app_list):
     ic(current_app)
     AppButton(
         app=main_app,
         master=scr_frame,
-        top_offset=20+(i*80), 
-        left_offset=16,
         app_name=current_app, 
         image=imgs.get(f"{current_app}.png"), 
         desc=app_list[current_app],
