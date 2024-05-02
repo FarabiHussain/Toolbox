@@ -12,6 +12,7 @@ app_list = {
     "RetAG": "Retainer agreements",
     "InvitationGen": "Invitation letters",
     "PayTrack": "Payment receipts",
+    "PayLock": "Payment authorizations",
 }
 
 frame = ctk.CTkFrame(
