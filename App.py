@@ -14,10 +14,9 @@ class App():
         self.root.configure(fg_color='white')
         self.version = "v0.0.1"
         self.root.title(f"AMCAIM Toolbox")
-        self.generic_counter = 0
 
         try:
-            self.root.iconbitmap(f"app.ico")
+            self.root.iconbitmap(f"{os.getcwd()}\\assets\\icons\\app.ico")
         except Exception as e:
             print(e)
 
@@ -38,10 +37,14 @@ class App():
         )
 
 
-    def get_counter(self) -> int:
-        return self.generic_counter
-
-
     def start(self) -> None:
         self.root.mainloop()
+
+
+    def hide(self) -> None:
+        self.root.withdraw()
+
+
+    def unhide(self) -> None:
+        self.root.deiconify()
 

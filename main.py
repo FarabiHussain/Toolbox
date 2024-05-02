@@ -1,18 +1,49 @@
-import docx, os
 import customtkinter as ctk
-from icecream import ic
 from Path import *
 from Img import *
+from GUI import *
 from App import *
 
 imgs = Img("lg")
-app = App()
-app.set_size(w=620, h=620)
+main_app = App()
+main_app.set_size(w=420, h=500)
 
-first_button = ctk.CTkButton(app.root, text="", image=imgs.get("retag.png"), border_width=0, corner_radius=2, fg_color="transparent", command=lambda:(), width=72, height=72)
-first_button.place(x=100, y=100)
+app_list = {
+    "RetAG": "Retainer agreements",
+    "InvitationGen": "Invitation letters",
+    "PayTrack": "Payment receipts",
+    "RetAG2": "Retainer agreements",
+    "InvitationGen2": "Invitation letters",
+    "PayTrack2": "Payment receipts",
+}
 
+frame = ctk.CTkFrame(
+    master=main_app.root,
+    fg_color="white",
+    border_width=1,
+)
 
-app.start()
+frame.pack(padx=10, pady=10, fill="both", expand=True)
 
+scr_frame = ctk.CTkScrollableFrame(
+    master=frame,
+    fg_color="white",
+    border_width=0,
+)
 
+scr_frame.pack(padx=5, pady=1, fill="both", expand=True)
+
+for i, current_app in enumerate(app_list):
+    ic(current_app)
+    AppButton(
+        app=main_app,
+        master=scr_frame,
+        top_offset=20+(i*80), 
+        left_offset=16,
+        app_name=current_app, 
+        image=imgs.get(f"{current_app}.png"), 
+        desc=app_list[current_app],
+        row=i,
+    )
+
+main_app.start()

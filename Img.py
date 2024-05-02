@@ -6,21 +6,23 @@ from glob import glob
 
 class Img():
     def __init__(self, size="md") -> None:
+
         coefficient = {
-            "sm": 25,
-            "md": 50,
-            "lg": 75,
+            "sm": 16,
+            "md": 32,
+            "lg": 72,
         }
 
         self.images = {}
-        self.size = coefficient[size] if size in coefficient else 50
+        self.size = coefficient[size] if size in coefficient else coefficient["md"]
         self.__read_images()
 
 
     def __read_images(self) -> None:
+        owd = os.getcwd()
+
         try:
             os.chdir(f"{os.getcwd()}\\assets\\icons")
-
             for f in glob("*"):
                 self.images[f] = None
         except Exception as e:
@@ -40,10 +42,15 @@ class Img():
             except Exception as e:
                 print(e)
 
+        os.chdir(owd)
+
 
     def get_names(self) -> list:
         return list(self.images.keys())
 
 
     def get(self, icon_name) -> dict:
-        return self.images[icon_name]
+        if icon_name in self.images:
+            return self.images[icon_name]
+
+        return self.images["Null.png"]
