@@ -282,7 +282,7 @@ class AppButton():
             fg_color="#ffffff",
         )
         
-        self.desc_frame.grid(row=row,column=1, pady=5, padx=5)
+        self.desc_frame.grid(row=row, column=1, pady=5, padx=5)
 
         bold_font = ctk.CTkFont(family="Roboto Bold", weight="bold")
         normal_font = ctk.CTkFont(family="Roboto")
