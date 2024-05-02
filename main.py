@@ -32,7 +32,6 @@ scr_frame = ctk.CTkScrollableFrame(
 scr_frame.pack(padx=1, pady=1, fill="both", expand=True)
 
 for i, current_app in enumerate(app_list):
-    ic(current_app)
     AppButton(
         app=main_app,
         master=scr_frame,
